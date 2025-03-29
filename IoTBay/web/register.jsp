@@ -1,9 +1,3 @@
-<%-- 
-    Document   : register
-    Created on : 14 Mar 2025, 3:56:14 pm
-    Author     : Ayden
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
