@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - IoTBay</title>
-    <!-- can connect css files later on -->
+    <link rel="stylesheet" href="css/footerCss.css">
 </head>
 <body>
     <header>

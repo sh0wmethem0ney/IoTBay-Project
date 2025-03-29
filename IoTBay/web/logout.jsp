@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Logout Page</title>
+    <link rel="stylesheet" href="css/footerCss.css">
 </head>
 <body>
     <h2>You have been logged out.</h2>
