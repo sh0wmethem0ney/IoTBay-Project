@@ -18,7 +18,7 @@
        
         <main>
             <div class="container">
-                <form action="welcome.jsp" method="post">
+                <form action="RegisterServlet" method="post">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required />
@@ -54,7 +54,7 @@
 
                     <div class="form-group">
                         <label for="tos">Agree to TOS:</label>
-                        <input type="checkbox" id="tos" name="tos" />agree
+                        <input type="checkbox" id="tos" name="tos" required/>agree
                     </div>
 
                     <div class="form-group" style="text-align: center;">
