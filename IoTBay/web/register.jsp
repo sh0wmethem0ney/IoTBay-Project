@@ -34,12 +34,18 @@
                         <input type="password" id="password" name="password" required />
                     </div>
 
-                    <div class="form-group">
-                        <label>Gender:</label>
-                        <input type="radio" id="male" name="gender" value="male" required />
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female" required />
-                        <label for="female">Female</label>
+                    <div class="form-group" style="display: flex; align-itmes: center;">
+                        <label style="width: 75px;">Gender:</label>
+                        <div style="display: inline-block;">
+                            <label style="display: flex; align-items: center;">
+                                <input type="radio" name="gender" value="male" required />
+                                <span style="margin-left: 5px;">Male</span>
+                            </label>
+                            <label style="display: flex; align-items: center;">
+                                <input type="radio" name="gender" value="female" required />
+                                <span style="margin-left: 5px;">Female</span>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -53,8 +59,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tos">Agree to TOS:</label>
-                        <input type="checkbox" id="tos" name="tos" required/>agree
+                        <label for="tos">ToS & EULA:
+                            <input type="checkbox" id="tos" name="tos" required/>agree
+                        </label>
                     </div>
 
                     <div class="form-group" style="text-align: center;">

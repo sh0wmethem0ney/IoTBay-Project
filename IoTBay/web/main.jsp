@@ -29,9 +29,9 @@
             </div>
 
             <div style="float: right; margin: 20px;">
-                <a href="account.jsp" class="btn">Account</a>
-                <a href="cart.jsp" class="btn">Cart</a>
-                <a href="logout.jsp" class="btn">Logout</a>
+                <a href="account.jsp" class="btn-link">Your Account</a>
+                <a href="cart.jsp" class="btn-link">Your Cart</a>
+                <a href="logout" class="btn-link">Sign Out</a>
             </div>
         </header>
 

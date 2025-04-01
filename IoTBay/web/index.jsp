@@ -28,8 +28,8 @@
         <div class="container">
             
             <div>
-               <a href="register.jsp"><button class="btn">Sign-up</button></a>
-                <a href="login.jsp"><button class="btn">Sign-In</button></a> 
+               <a href="register.jsp"><button class="btn" style="width: 100%;">Create Account</button></a>
+                <a href="login.jsp"><button class="btn" style="width: 100%;">Sign-In</button></a> 
             </div>
             
 
