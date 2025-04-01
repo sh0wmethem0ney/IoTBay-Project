@@ -13,18 +13,12 @@ public class CustomerBean {
     private int orderID;
     private String password;
     private String email;
+    private String gender;
 
     //constructor
-    public CustomerBean(String customerName, String dateOfBirth, String phoneNumber, String userID, String address, String email, String password) {
-        //this ensures each instantiate of object runs generateID method
-        this.customerID = generateID();
-        this.customerName = customerName;
-        this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
-        this.userID = userID;
-        this.address = address;
-        this.password = password;
-        this.email = email;
+    public CustomerBean(){
+        //default constructor
+        //not sure if parameters are needed
     }
 
     //method to assign 6 digit ID value to each object
@@ -44,6 +38,14 @@ public class CustomerBean {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
     }
 
     public String getCustomerName() {
@@ -100,5 +102,13 @@ public class CustomerBean {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getGender(){
+        return gender;
+    }
+    
+    public void setGender(String gender){
+        this.gender = gender;
     }
 }
