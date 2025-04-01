@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/footerCss.css">
+    <link rel="stylesheet" href="css/IoTBayCss.css">
     <title>IoTBay</title>
 </head>
 
@@ -28,7 +28,7 @@
         <div class="container">
             
             <div>
-               <a href="register.jsp"><button class="btn">Sign-up!</button></a>
+               <a href="register.jsp"><button class="btn">Sign-up</button></a>
                 <a href="login.jsp"><button class="btn">Sign-In</button></a> 
             </div>
             
