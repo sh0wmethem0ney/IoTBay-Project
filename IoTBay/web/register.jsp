@@ -4,59 +4,69 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
-        <link rel="stylesheet" href="css/footerCss.css">
+        <link rel="stylesheet" href="css/IoTBayCss.css">
     </head>
-    
-    
-    
+     
     <body>
-        <h2>Register</h2>
+        
+        <a href="index.jsp">
+            <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
+        </a>
+        
+        <header>
+            <h1>Register</h1>
+        </header>
        
-        <form action="welcome.jsp" method="post">
-            <table>
-                <tr>
-                    <td><label for="email">Email:</label></td>
-                    <td><input type="email" id="email" name="email" required></td>
-                </tr>
+        <main>
+            <div class="container">
+                <form action="welcome.jsp" method="post">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
 
-                <tr>
-                    <td><label for="name">Name:</label></td>
-                    <td><input type="text" id="customerName" name="customerName" required></td>
-                </tr>
+                    <div class="form-group">
+                        <label for="customerName">Name:</label>
+                        <input type="text" id="customerName" name="customerName" required />
+                    </div>
 
-                <tr>
-                    <td><label for="password">Password:</label></td>
-                    <td><input type="password" id="password" name="password" required></td>
-                </tr>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
 
-                <tr>
-                    <td><label>Gender:</label></td>
-                    <td><input type="radio" id="male" name="gender" value="male" required>
-                    <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female" required>
-                    <label for="female">Female</label></td>
-                </tr>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <input type="radio" id="male" name="gender" value="male" required />
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female" required />
+                        <label for="female">Female</label>
+                    </div>
 
-                <tr>
-                    <td><label>Date of birth:</label></td>
-                    <td><input type="date" id="dateOfBirth" name="dateOfBirth" required>
-                </tr>
-                
-                <tr>
-                    <td><label>Phone number:</label></td>
-                    <td><input type="tel" id="phoneNumber" name="phoneNumber"></td>
-                </tr>
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+                    </div>
 
-                <tr>
-                    <td><label for="tos">Agree to TOS:</label></td>
-                    <td><input type="checkbox" id="tos" name="tos"></td>
-                </tr>
-                
-                <tr>
-                    <td><button type="submit">Register</button></td>
-                </tr>
-            </table>
-        </form>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tos">Agree to TOS:</label>
+                        <input type="checkbox" id="tos" name="tos" />agree
+                    </div>
+
+                    <div class="form-group" style="text-align: center;">
+                        
+                        <a href="index.jsp" class="btn" style="font-family:Arial, sans-serif; width: 25%; padding: 10px; margin: 10px 0; background-color: #4CAF50; color: white; border: none; text-decoration: none;" >Back</a>
+                        <button type="submit" class="btn">Register</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
         
     </body>
 </html>

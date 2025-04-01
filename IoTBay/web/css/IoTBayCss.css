@@ -7,6 +7,32 @@ footer {
     color: #555;
 }
 
+/* form groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 /* bodies */
 body {
     font-family: Arial, sans-serif;
@@ -35,6 +61,12 @@ header {
 /* h1 */
 h1 {
     font-size: 24px;
+    text-align: center;
+}
+
+/* h2 */
+h2 {
+    font-size: 20px;
     text-align: center;
 }
 
