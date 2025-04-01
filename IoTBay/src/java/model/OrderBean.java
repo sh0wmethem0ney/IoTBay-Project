@@ -1,4 +1,4 @@
-package beans;
+package model;
 
 public class OrderBean {
     //member attributes
