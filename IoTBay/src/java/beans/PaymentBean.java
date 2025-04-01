@@ -1,4 +1,4 @@
-package model;
+package beans;
 
 public class PaymentBean {
     //member attributes

@@ -1,13 +1,3 @@
-<%@ page import="model.CustomerBean" %>
-
-<%
-    CustomerBean user = (CustomerBean) session.getAttribute("user");
-    if (user == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-%>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
