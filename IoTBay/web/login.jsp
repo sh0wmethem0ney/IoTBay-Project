@@ -23,7 +23,7 @@
             <form action="LoginServlet" method="post">
                 <div class="form-group">
                     <label for="userid">Email:</label>
-                    <input type="text" id="userid" name="id" required />
+                    <input type="email" id="userid" name="id" required />
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
