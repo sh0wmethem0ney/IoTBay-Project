@@ -30,9 +30,9 @@
             </div>
 
             <div style="float: right; margin: 20px;">
-                <a href="account.jsp" class="btn-link">Your Account</a>
-                <a href="cart.jsp" class="btn-link">Your Cart</a>
-                <a href="logout" class="btn-link">Sign Out</a>
+                <a href="account.jsp" class="btn">Your Account</a>
+                <a href="cart.jsp" class="btn">Your Cart</a>
+                <a href="logout" class="btn">Sign Out</a>
             </div>
         </header>
 

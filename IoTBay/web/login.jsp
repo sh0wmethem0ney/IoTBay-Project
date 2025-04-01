@@ -30,7 +30,7 @@
                         <input type="password" id="password" name="password" required />
                     </div>
                     <div class="form-group" style="text-align: center;">
-                        <a href="index.jsp" class="btn-link">Back</a>
+                        <a href="index.jsp" class="btn">Back</a>
                         <button class="btn" type="submit">Sign In</button>
                     </div>
                 </form>

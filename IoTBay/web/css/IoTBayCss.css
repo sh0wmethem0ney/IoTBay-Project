@@ -75,36 +75,26 @@ h2 {
     text-align: center;
 }
 
-/* buttons */
-.btn {
-    width: 25%;
+/* button and a*/
+.btn, a.btn {
+font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    width: auto;
     padding: 10px;
-    margin: 10px 0;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #45a049;
-}
-
-/* a */
-a.btn-link {
-    font-family: Arial, sans-serif;
-     width: 25%;
-    padding: 10px;
-    margin: 10px 0;
+    margin: 10px 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    vertical-align: middle;
 }
 
-a.btn-link:hover {
+
+.btn:hover, a.btn:hover {
     background-color: #45a049;
-    text-decoration: none;
 }

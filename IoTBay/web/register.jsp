@@ -64,7 +64,7 @@
 
                     <div class="form-group" style="text-align: center;">
                         
-                        <a href="index.jsp" class="btn-link">Back</a>
+                        <a href="index.jsp" class="btn">Back</a>
                         <button type="submit" class="btn">Register</button>
                     </div>
                 </form>
