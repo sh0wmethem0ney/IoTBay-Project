@@ -1,61 +1,56 @@
+<%@page import="beans.CustomerBean"%>
+<%
+    // extracting user info from session
+    CustomerBean customer = (CustomerBean) session.getAttribute("user");
+
+    // back to index if not logged in
+    if (customer == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IoTBayCss.css">
-    <title>IoTBay</title>
-</head>
+<html>
+    <head>
+        <title>Main - IoTBay</title>
+        <link rel="stylesheet" href="css/IoTBayCss.css">
+    </head>
+    <body>
 
-<body>
-    
-    <a href="index.jsp">
-        <img src="images/IoTBay Logo.png" alt="IoTBay Logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
-    </a>
-    
-    <header>
-        <h1>Welcome to IoTBay</h1>
-    </header>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <main>
-        <!-- Main contents to be added here -->
-        <div class="container">
-            
+        <a href="index.jsp">
+            <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
+        </a>
+
+        <!-- welcome message -->
+        <header style="clear: both; text-align: center; padding: 20px;">
             <div>
-               <a href="register.jsp"><button class="btn">Sign-up</button></a>
-                <a href="login.jsp"><button class="btn">Sign-In</button></a> 
+                <h1>Welcome, <%= customer.getCustomerName() %>!</h1>
             </div>
-            
 
-            <!-- IoTBay description -->
-            <div class="description">
-                <h2>About IoTBay</h2>
-                <p>
-                    IoTBay is a leading online platform for purchasing high-quality IoT devices.  
-                    Whether you're a tech enthusiast or managing smart home solutions, we provide a wide range of products tailored to your needs.
-                </p>
-                <p>
-                    Join us today and take control of your connected lifestyle with ease and confidence.
-                </p>
+            <div style="float: right; margin: 20px;">
+                <a href="account.jsp" class="btn">Account</a>
+                <a href="cart.jsp" class="btn">Cart</a>
+                <a href="logout.jsp" class="btn">Logout</a>
             </div>
-    </div>
-    </main>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <footer>
-        <p>&copy; 2025 IoTBay-ISD. All rights reserved.</p>
-    </footer>
-</body>
+        </header>
+
+        <br>
+        <br>
+        <br>
+
+        <!-- product images area -->
+        <main>
+            
+        </main>
+
+        <br>
+        <br>
+        <br>
+
+        <footer>
+            <p>&copy; 2025 IoTBay-ISD. All rights reserved.</p>
+        </footer>
+
+    </body>
 </html>
