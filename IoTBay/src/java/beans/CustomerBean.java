@@ -3,8 +3,8 @@ package beans;
 public class CustomerBean {
     
     //member attributes
-    private static int idCounter = 0;
-    private int customerID;
+    private static int idCounter = 1;
+    private String customerID;
     private String customerName;
     private String dateOfBirth;
     private String phoneNumber;
@@ -19,24 +19,21 @@ public class CustomerBean {
     public CustomerBean(){
         //default constructor
         //not sure if parameters are needed
+        generateID();
     }
 
-    //method to assign 6 digit ID value to each object
-    private int generateID(){
-        int cur = idCounter++;
-        String str = Integer.toString(cur);
-        while(str.length() < 6){
-            str = "0" + str;
-        }
-        return 0;
+    //method to assign 6 digit ID value to each object -> need to work on this later
+    private String generateID() {
+        String str = String.format("%06d", idCounter++);
+        return str;
     }
 
     //accessors and mutators
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
     

@@ -21,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // receiving data
+        // receiving data from register.jsp
         String email = request.getParameter("email");
         String name = request.getParameter("customerName");
         String password = request.getParameter("password");
@@ -29,7 +29,7 @@ public class RegisterServlet extends HttpServlet {
         String dateOfBirth = request.getParameter("dateOfBirth");
         String phone = request.getParameter("phoneNumber");
 
-        // instantiate an object
+        // instantiate an object and store data
         CustomerBean customer = new CustomerBean();
         customer.setEmail(email);
         customer.setCustomerName(name);

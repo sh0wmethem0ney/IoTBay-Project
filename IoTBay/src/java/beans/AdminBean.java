@@ -18,7 +18,7 @@ public class AdminBean {
         this.email = email;
     }
 
-    //method to assign 6 digit ID value to each object
+    //method to assign 6 digit ID value to each object -> need to work on this later
     private int generateID(){
         int cur = idCounter++;
         String str = Integer.toString(cur);

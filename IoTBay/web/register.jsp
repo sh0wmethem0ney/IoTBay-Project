@@ -35,13 +35,11 @@
                     </div>
 
                     <div class="form-group" style="display: flex; align-itmes: center;">
-                        <label style="width: 75px;">Gender:</label>
+                        <label style="width: 80px;">Gender:</label>
                         <div style="display: inline-block;">
                             <label style="display: flex; align-items: center;">
                                 <input type="radio" name="gender" value="male" required />
                                 <span style="margin-left: 5px;">Male</span>
-                            </label>
-                            <label style="display: flex; align-items: center;">
                                 <input type="radio" name="gender" value="female" required />
                                 <span style="margin-left: 5px;">Female</span>
                             </label>
