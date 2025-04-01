@@ -18,13 +18,13 @@
 
         <main>
             <br><br><br>
-            <div class="container" style="text-align: center;">
+            <div class="container"style="text-align: center;">
                 <p>You have been successfully logged out.</p>
                 <p>Thank you for visiting IoTBay!</p>
                 <br>
-                <a href="login.jsp" class="btn" style="width: 40%; text-decoration: none;">Login Again</a>
+                <a href="login.jsp" class="btn-link">Login Again</a>
                 <br><br><br>
-                <a href="index.jsp" class="btn" style="width: 40%; text-decoration: none;">Back to Home</a>
+                <a href="index.jsp" class="btn-link">Back to Home</a>
             </div>
         </main>
 

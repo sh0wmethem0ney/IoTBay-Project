@@ -84,3 +84,22 @@ h2 {
 .btn:hover {
     background-color: #45a049;
 }
+
+/* a */
+a.btn-link {
+    font-family: Arial, sans-serif;
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+a.btn-link:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}

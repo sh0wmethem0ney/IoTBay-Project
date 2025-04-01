@@ -34,7 +34,7 @@
             <p><strong>Date of Birth:</strong> <%= customer.getDateOfBirth() %></p>
 
             <div style="text-align: center; margin-top: 30px;">
-                <a href="main.jsp" class="btn">Go to Main</a>
+                <a href="main.jsp" class="btn-link">Go to Main</a>
             </div>
         </div>
     </main>
