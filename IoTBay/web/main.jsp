@@ -20,21 +20,27 @@
     <body>
 
         <a href="index.jsp">
-            <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
+            <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: auto; margin: 0 auto; display:block;">
         </a>
 
         <!-- welcome message -->
-        <header style="clear: both; text-align: center; padding: 20px;">
+        <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
             <div>
                 <h1>Welcome, <%= customer.getCustomerName() %>!</h1>
             </div>
 
-            <div style="float: right; margin: 20px;">
-                <a href="account.jsp" class="btn">Your Account</a>
-                <a href="cart.jsp" class="btn">Your Cart</a>
-                <a href="logout" class="btn">Sign Out</a>
+            <div style="float: right;">
+                <a href="account.jsp" class="btn" style="background: darkgreen;">Your Account</a>
+                <a href="cart.jsp" class="btn" style="background: darkgreen;">Your Cart</a>
+                <a href="logout" class="btn" style="background: darkgreen;">Sign Out</a>
             </div>
+            
         </header>
+            
+        <div class="promo-banner" style="">
+            <img src="images/bottomImage.jpeg" style="width: 100%;height: 300px;object-fit: cover;display: block;">
+            </div>
+        </div>
 
         <br>
         <br>
@@ -48,35 +54,26 @@
             <div style="text-align: center;">
                 <img src="images/speaker.jpeg" style="width: 200px; height: auto; border-radius: 10px;">
                 <h3>Smart Sensor</h3>
-                <p>Price: $29.99</p>
+                <p>$29.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
 
-            <!-- Product 2 -->
             <div style="text-align: center;">
                 <img src="images/product2.jpg" style="width: 200px; height: auto; border-radius: 10px;">
                 <h3>B</h3>
-                <p>Price: $19.99</p>
+                <p>$19.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
 
-            <!-- Product 3 -->
             <div style="text-align: center;">
                 <img src="images/product3.jpg" style="width: 200px; height: auto; border-radius: 10px;">
                 <h3>C</h3>
-                <p>Price: $24.99</p>
+                <p>$24.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
         
     </div>
             
-    <div class="promo-banner" style="">
-        <img src="images/bottom image.jpeg" style="">
-        <div class="promo-text">
-            <h2>Spring IoT Sale!</h2>
-            <p>Get up to 50% off on selected smart devices. Limited time only!</p>
-        </div>
-    </div>
         </main>
 
         <br>
