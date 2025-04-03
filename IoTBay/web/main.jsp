@@ -63,16 +63,16 @@
             </div>
 
             <div style="text-align: center;">
-                <img src="images/product2.png" style="width: 200px; height: 300px; border-radius: 10px;">
-                <h3>B</h3>
-                <p>$69.99</p>
+                <img src="images/smartBlind.png" style="width: 200px; height: 300px; border-radius: 10px;">
+                <h3>Smart Blind System</h3>
+                <p>$169.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
 
             <div style="text-align: center;">
                 <img src="images/smartCam.png" style="width: 200px; height: 300px; border-radius: 10px;">
-                <h3>C</h3>
-                <p>$84.99</p>
+                <h3>Smart Home Cam</h3>
+                <p>$124.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
         
