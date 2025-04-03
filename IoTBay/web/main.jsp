@@ -19,7 +19,7 @@
     </head>
     <body>
 
-        <a href="index.jsp">
+        <a href="main.jsp">
             <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: auto; margin: 0 auto; display:block;">
         </a>
 
@@ -37,10 +37,14 @@
             
         </header>
             
-        <div class="promo-banner" style="">
-            <img src="images/bottomImage.jpeg" style="width: 100%;height: 300px;object-fit: cover;display: block;">
+            <div class="promo-banner" style="">
+                <a href="main.jsp"><img src="images/bottomImage.jpeg" style="width: 100%;height: 300px;object-fit: cover;display: block;"></a>
+                <div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.3); color: #002222; padding: 20px 40px; border-radius: 12px; text-align: center; backdrop-filter: blur(6px); box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    <h2 style="margin: 0; font-size: 28px;">BIG SALE!</h2>
+                    <p style="margin-top: 10px; font-size: 18px;">UPTO 50% OFF THIS WEEK! GRAB NOW!</p>
+                </div>
+            
             </div>
-        </div>
 
         <br>
         <br>
@@ -52,23 +56,23 @@
         
         <!-- Product section -->
             <div style="text-align: center;">
-                <img src="images/speaker.jpeg" style="width: 200px; height: auto; border-radius: 10px;">
-                <h3>Smart Sensor</h3>
-                <p>$29.99</p>
+                <img src="images/speaker.jpeg" style="width: 200px; height: 300px; border-radius: 10px;">
+                <h3>Smart Speaker</h3>
+                <p>$59.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
 
             <div style="text-align: center;">
-                <img src="images/product2.jpg" style="width: 200px; height: auto; border-radius: 10px;">
+                <img src="images/product2.png" style="width: 200px; height: 300px; border-radius: 10px;">
                 <h3>B</h3>
-                <p>$19.99</p>
+                <p>$69.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
 
             <div style="text-align: center;">
-                <img src="images/product3.jpg" style="width: 200px; height: auto; border-radius: 10px;">
+                <img src="images/smartCam.png" style="width: 200px; height: 300px; border-radius: 10px;">
                 <h3>C</h3>
-                <p>$24.99</p>
+                <p>$84.99</p>
                 <button class="btn">Add to Cart</button>
             </div>
         
