@@ -8,12 +8,12 @@ public class CustomerBean {
     private String customerName;
     private String dateOfBirth;
     private String phoneNumber;
-    private String userID;
     private String address;
-    private int orderID;
     private String password;
     private String email;
     private String gender;
+    private int orderID;
+
 
     //constructor
     public CustomerBean(){
@@ -67,14 +67,6 @@ public class CustomerBean {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
 
     public String getAddress() {
