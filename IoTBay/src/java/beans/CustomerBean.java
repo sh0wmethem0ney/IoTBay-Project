@@ -19,7 +19,7 @@ public class CustomerBean {
     public CustomerBean(){
         //default constructor
         //not sure if parameters are needed
-        generateID();
+        this.customerID = generateID();
     }
 
     //method to assign 6 digit ID value to each object -> need to work on this later
