@@ -53,7 +53,7 @@
 
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number:</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" />
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required/>
                     </div>
 
                     <div class="form-group">
