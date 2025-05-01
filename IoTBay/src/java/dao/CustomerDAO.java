@@ -35,4 +35,22 @@ public class CustomerDAO {
             e.printStackTrace();
         }
     }
+    
+    public String getNextCustomerID() {
+        String sql = "SELECT MAX(customer_id) FROM Customers";
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            int nextId = 1;
+            if (rs.next() && rs.getString(1) != null) {
+                nextId = Integer.parseInt(rs.getString(1)) + 1;
+            }
+            return String.format("%06d", nextId);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
