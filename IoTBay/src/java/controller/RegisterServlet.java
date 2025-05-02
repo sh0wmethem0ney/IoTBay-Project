@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import beans.CustomerBean;
+import dao.CustomerDAO;
 
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
 public class RegisterServlet extends HttpServlet {
@@ -29,6 +30,15 @@ public class RegisterServlet extends HttpServlet {
         String dateOfBirth = request.getParameter("dateOfBirth");
         String phone = request.getParameter("phoneNumber");
 
+        //check if there is null value passed from View
+        if (email == null || email.trim().isEmpty() || name == null || name.trim().isEmpty() || password == null || password.trim().isEmpty() ||
+        gender == null || gender.trim().isEmpty() || dateOfBirth == null || dateOfBirth.trim().isEmpty() || phone == null || phone.trim().isEmpty()) {
+            request.setAttribute("errorMessage", "All fields must be filled.");
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+            return;
+        }
+        
+        
         // instantiate an object and store data
         CustomerBean customer = new CustomerBean();
         customer.setEmail(email);
@@ -38,11 +48,25 @@ public class RegisterServlet extends HttpServlet {
         customer.setDateOfBirth(dateOfBirth);
         customer.setPhoneNumber(phone);
 
-        // storing in a session
-        HttpSession session = request.getSession();
-        session.setAttribute("user", customer);
+        try {
+            // ID setting from DAO
+            CustomerDAO dao = new CustomerDAO();
+            String newId = dao.getNextCustomerID();
+            customer.setCustomerID(newId);
 
-        // redirect to main.jsp
-        response.sendRedirect("welcome.jsp");
+            // Insert it into DB
+            dao.insertCustomer(customer);
+
+            // storing in a session
+            HttpSession session = request.getSession();
+            session.setAttribute("user", customer);
+
+            // redirect to main.jsp
+            response.sendRedirect("welcome.jsp");
+
+        } catch (Exception e) {
+            request.setAttribute("errorMessage", "Error occured: " + e.getMessage());
+            request.getRequestDispatcher("register.jsp").forward(request, response);
+        }
     }
 }
