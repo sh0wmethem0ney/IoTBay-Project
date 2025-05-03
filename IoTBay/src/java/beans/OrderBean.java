@@ -10,24 +10,20 @@ public class OrderBean {
     private String shippingDetails;
 
     //constructor
-    public OrderBean(String orderDesc, String orderStatus, String paymentID, String shippingDetails) {
+    public OrderBean() {
         //this ensures each instantiate of object runs generateID method
-        this.orderID = generateID();
-        this.orderDesc = orderDesc;
-        this.orderStatus = orderStatus;
-        this.paymentID = paymentID;
-        this.shippingDetails = shippingDetails;
+//        this.orderID = generateID();
     }
 
     //method to assign 6 digit ID value to each object -> need to work on this later
-    private int generateID(){
-        int cur = idCounter++;
-        String str = Integer.toString(cur);
-        while(str.length() < 6){
-            str = "0" + str;
-        }
-        return 0;
-    }
+//    private int generateID(){
+//        int cur = idCounter++;
+//        String str = Integer.toString(cur);
+//        while(str.length() < 6){
+//            str = "0" + str;
+//        }
+//        return 0;
+//    }
 
     //accessors and mutators
     public int getOrderID() {

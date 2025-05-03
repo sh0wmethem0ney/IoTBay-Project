@@ -4,7 +4,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import beans.CustomerBean;
+import beans.UserBean;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         if (email != null && !email.isEmpty() && password != null && !password.isEmpty()) {
 
             // dummy created -> must be figured on R1 release
-            CustomerBean customer = new CustomerBean();
+            UserBean customer = new UserBean();
             customer.setEmail(email);
             customer.setPassword(password);
             customer.setCustomerName("Guest User"); // dummy data is here 

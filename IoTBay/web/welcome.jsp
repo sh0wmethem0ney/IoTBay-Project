@@ -1,11 +1,11 @@
-<%@page import="beans.CustomerBean"%>
+<%@ page import="beans.UserBean" %>
 <%
     //asking user attribute to the session
-    CustomerBean customer = (CustomerBean) session.getAttribute("user");
+    UserBean user = (UserBean) session.getAttribute("user");
     
     //back to index if not logged in
-        if (customer == null) {
-        response.sendRedirect("index.jsp");
+        if (user == null) {
+        response.sendRedirect("login.jsp");
         return;
     }
 %>
@@ -23,15 +23,15 @@
         </a>
 
         <header>
-            <h1>Welcome, <%= customer.getCustomerName() %>!</h1>
+            <h1>Welcome, <%= user.getCustomerName() %>!</h1>
         </header>
 
         <main>
             <div class="container">
-                <p><strong>Email:</strong> <%= customer.getEmail() %></p>
-                <p><strong>Phone:</strong> <%= customer.getPhoneNumber() %></p>
-                <p><strong>Gender:</strong> <%= customer.getGender() %></p>
-                <p><strong>Date of Birth:</strong> <%= customer.getDateOfBirth() %></p>
+                <p><strong>Email:</strong> <%= user.getEmail() %></p>
+                <p><strong>Phone:</strong> <%= user.getPhoneNumber() %></p>
+                <p><strong>Gender:</strong> <%= user.getGender() %></p>
+                <p><strong>Date of Birth:</strong> <%= user.getDateOfBirth() %></p>
 
                 <div style="text-align: center; margin-top: 30px;">
                     <a href="main.jsp" class="btn">Go to Main</a>
