@@ -26,10 +26,8 @@ public class LoginServlet extends HttpServlet {
 //           customer.setEmail(email);
 //           customer.setPassword(password);
 //           customer.setUserName("Guest User"); // dummy data is here 
-//
 //           HttpSession session = request.getSession();
 //           session.setAttribute("user", customer);
-
 //           // redirect to main.jsp
 //           response.sendRedirect("main.jsp");
 
