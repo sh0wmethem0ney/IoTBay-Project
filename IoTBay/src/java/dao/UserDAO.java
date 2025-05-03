@@ -61,4 +61,33 @@ public class UserDAO {
 
         return nextId;
     }
+    
+    public UserBean findUserToLogIn(String email, String password){
+        String sqlState = "SELECT * FROM USERS WHERE email = ? AND password = ?";
+        try (Connection con = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = con.prepareStatement(sqlState)) {
+            
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            ResultSet re = stmt.executeQuery();
+            
+            if(re.next()){
+                UserBean user = new UserBean();
+                user.setUserID(re.getInt("user_id"));
+                user.setUserName(re.getString("name"));
+                user.setDateOfBirth(re.getString("date_of_birth"));
+                user.setPhoneNumber(re.getString("phone_number"));
+                user.setAddress(re.getString("address"));
+                user.setPassword(re.getString("password"));
+                user.setEmail(re.getString("email"));
+                user.setGender(re.getString("gender"));
+                user.setRole(re.getString("role").charAt(0));
+                return user;
+            }
+            
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
