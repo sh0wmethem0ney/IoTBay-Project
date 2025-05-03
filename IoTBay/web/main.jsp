@@ -1,10 +1,10 @@
-<%@page import="beans.CustomerBean"%>
+<%@page import="beans.UserBean"%>
 <%
     // extracting user info from session
-    CustomerBean customer = (CustomerBean) session.getAttribute("user");
+    UserBean user = (UserBean) session.getAttribute("user");
 
     // back to index if not logged in
-    if (customer == null) {
+    if (user == null) {
         response.sendRedirect("index.jsp");
         return;
     }
@@ -26,7 +26,7 @@
         <!-- welcome message -->
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
             <div>
-                <h1>Welcome, <%= customer.getCustomerName() %>!</h1>
+                <h1>Welcome, <%= user.getUserName() %>!</h1>
             </div>
 
             <div style="float: right;">

@@ -105,7 +105,7 @@ public class RegisterServlet extends HttpServlet {
         // instantiate and populate user object
         UserBean customer = new UserBean();
         customer.setEmail(email);
-        customer.setCustomerName(name);
+        customer.setUserName(name);
         customer.setPassword(password);
         customer.setGender(gender);
         customer.setDateOfBirth(dateOfBirth);

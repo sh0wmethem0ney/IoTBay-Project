@@ -46,11 +46,11 @@ public class UserBean {
         this.email = email;
     }
 
-    public String getCustomerName() {
+    public String getUserName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
+    public void setUserName(String customerName) {
         this.customerName = customerName;
     }
 

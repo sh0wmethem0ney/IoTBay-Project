@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
             UserBean customer = new UserBean();
             customer.setEmail(email);
             customer.setPassword(password);
-            customer.setCustomerName("Guest User"); // dummy data is here 
+            customer.setUserName("Guest User"); // dummy data is here 
 
             HttpSession session = request.getSession();
             session.setAttribute("user", customer);

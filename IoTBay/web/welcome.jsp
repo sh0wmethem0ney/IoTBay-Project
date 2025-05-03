@@ -23,7 +23,7 @@
         </a>
 
         <header>
-            <h1>Welcome, <%= user.getCustomerName() %>!</h1>
+            <h1>Welcome, <%= user.getUserName() %>!</h1>
         </header>
 
         <main>

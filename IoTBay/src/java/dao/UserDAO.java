@@ -16,7 +16,7 @@ public class UserDAO {
         try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
              PreparedStatement stmt = conn.prepareStatement(sqlState, Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, user.getCustomerName());
+            stmt.setString(1, user.getUserName());
             stmt.setDate(2, Date.valueOf(user.getDateOfBirth()));
             stmt.setString(3, user.getPhoneNumber());
             stmt.setString(4, user.getAddress());
