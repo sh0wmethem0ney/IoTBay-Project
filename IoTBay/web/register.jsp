@@ -25,8 +25,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="customerName">Name:</label>
-                        <input type="text" id="customerName" name="customerName" required />
+                        <label for="userName">Name:</label>
+                        <input type="text" id="userName" name="userName" required />
                     </div>
 
                     <div class="form-group">

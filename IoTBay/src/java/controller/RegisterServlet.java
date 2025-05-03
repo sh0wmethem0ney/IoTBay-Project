@@ -81,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
 
         // receiving data from register.jsp
         String email = request.getParameter("email");
-        String name = request.getParameter("customerName");
+        String name = request.getParameter("userName");
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         String dateOfBirth = request.getParameter("dateOfBirth");
@@ -97,31 +97,35 @@ public class RegisterServlet extends HttpServlet {
             phone == null || phone.trim().isEmpty() || 
             address == null || address.trim().isEmpty()) {
 
+            //error case handle
             request.setAttribute("errorMessage", "All fields must be filled.");
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
-        // instantiate and populate user object
-        UserBean customer = new UserBean();
-        customer.setEmail(email);
-        customer.setUserName(name);
-        customer.setPassword(password);
-        customer.setGender(gender);
-        customer.setDateOfBirth(dateOfBirth);
-        customer.setPhoneNumber(phone);
-        customer.setAddress(address);
-        customer.setRole('c'); // 'c' for customer
+        // instantiate a user object
+        UserBean user = new UserBean();
+        user.setEmail(email);
+        user.setUserName(name);
+        user.setPassword(password);
+        user.setGender(gender);
+        user.setDateOfBirth(dateOfBirth);
+        user.setPhoneNumber(phone);
+        user.setAddress(address);
+        user.setRole('c'); // 'c' for customer
 
         try {
+            //call DAO class
             UserDAO dao = new UserDAO();
             int newId = dao.getNextUserID();
-            customer.setUserID(newId);
+            user.setUserID(newId);
 
-            dao.insertUser(customer); // method renamed to insertUser()
+            //call insert method
+            dao.insertUser(user);
 
+            //setting session attribute
             HttpSession session = request.getSession();
-            session.setAttribute("user", customer);
+            session.setAttribute("user", user);
 
             response.sendRedirect("welcome.jsp");
 

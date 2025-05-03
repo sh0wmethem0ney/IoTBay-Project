@@ -5,7 +5,7 @@ public class UserBean {
     //member attributes
     //private static int idCounter = 1;
     private int UserID;
-    private String customerName;
+    private String userName;
     private String dateOfBirth;
     private String phoneNumber;
     private String address;
@@ -47,11 +47,11 @@ public class UserBean {
     }
 
     public String getUserName() {
-        return customerName;
+        return userName;
     }
 
-    public void setUserName(String customerName) {
-        this.customerName = customerName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getDateOfBirth() {
