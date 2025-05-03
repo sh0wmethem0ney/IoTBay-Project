@@ -21,7 +21,7 @@
                 <form action="RegisterServlet" method="post">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
+                        <input type="text" id="email" name="email" required />
                     </div>
 
                     <div class="form-group">
@@ -31,7 +31,12 @@
 
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required />
+                        <input type="text" id="password" name="password" required />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" required />
                     </div>
 
                     <div class="form-group" style="display: flex; align-itmes: center;">
