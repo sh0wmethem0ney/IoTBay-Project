@@ -3,8 +3,8 @@ package beans;
 public class UserBean {
     
     //member attributes
-//    private static int idCounter = 1;
-    private String customerID;
+    //private static int idCounter = 1;
+    private int UserID;
     private String customerName;
     private String dateOfBirth;
     private String phoneNumber;
@@ -12,6 +12,7 @@ public class UserBean {
     private String password;
     private String email;
     private String gender;
+    private char role;  // 'c' = Customer, 'a' = Admin, 's' = Staff
     private int orderID;
 
 
@@ -29,12 +30,12 @@ public class UserBean {
 //    }
 
     //accessors and mutators
-    public String getCustomerID() {
-        return customerID;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
     }
     
     public String getEmail(){
@@ -100,4 +101,13 @@ public class UserBean {
     public void setGender(String gender){
         this.gender = gender;
     }
+    
+    public char getRole(){
+        return role;
+    }
+    
+    public void setRole(char role){
+        this.role = role;
+    }
+    
 }
