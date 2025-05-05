@@ -66,7 +66,11 @@
                 <button type="submit" class="btn">Update Info</button>
                 <a href="main.jsp" class="btn">Cancel</a>
             </form>
-        </div>
+                
+            <form action="DeleteAccountServlet" method="post" onsubmit="return confirm('Are you sure deleting your account? Irrversiable');">
+                <button type="submit" class="btn" style="background-color: red;">Delete my account</button>
+            </form>
+        </div>             
     </main>
                 
 </body>
