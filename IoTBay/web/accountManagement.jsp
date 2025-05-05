@@ -1,4 +1,5 @@
 <%@page import="beans.UserBean"%>
+<!-- send back to login if user = null -->
 <%
     UserBean user = (UserBean) session.getAttribute("user");
     if (user == null) {
@@ -6,18 +7,25 @@
         return;
     }
 %>
+
 <!DOCTYPE html>
+
 <html>
+    
+    
 <head>
     <title>Account Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IoTBayCss.css">
 </head>
+
+
 <body>
     <header>
         <h1>Manage Your Account</h1>
     </header>
 
+    <!-- return to main.jsp if success -->
     <%
     String success = request.getParameter("success");
     if ("true".equals(success)) {
@@ -30,6 +38,7 @@
     }
     %>
 
+    <!-- info update container -->
     
     <main>
         <div class="container">
@@ -59,5 +68,7 @@
             </form>
         </div>
     </main>
+                
 </body>
+
 </html>

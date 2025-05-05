@@ -18,26 +18,27 @@ public class UpdateAccountServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         UserBean user = (UserBean) session.getAttribute("user");
 
+        //send back if user = null
         if (user == null) {
             response.sendRedirect("login.jsp");
             return;
         }
 
-        // get updated
+        // update
         String newDob = request.getParameter("dateOfBirth");
         String newPhone = request.getParameter("phoneNumber");
         String newAddress = request.getParameter("address");
         String newPassword = request.getParameter("password");
         String newGender = request.getParameter("gender");
 
-        // update bean
+        // set bean with new info
         user.setDateOfBirth(newDob);
         user.setPhoneNumber(newPhone);
         user.setAddress(newAddress);
         user.setPassword(newPassword);
         user.setGender(newGender);
 
-        // update DB -> DAO
+        // update -> DAO method 'updateUserInfo' call
         try {
             UserDAO dao = new UserDAO();
             dao.updateUserInfo(user);
