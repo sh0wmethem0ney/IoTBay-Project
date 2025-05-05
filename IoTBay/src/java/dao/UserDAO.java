@@ -90,4 +90,27 @@ public class UserDAO {
         }
         return null;
     }
+    
+    // User update method
+public void updateUserInfo(UserBean user) {
+    String sql = "UPDATE USERS SET date_of_birth = ?, phone_number = ?, address = ?, password = ?, gender = ? WHERE user_id = ?";
+
+    try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setDate(1, Date.valueOf(user.getDateOfBirth()));
+        stmt.setString(2, user.getPhoneNumber());
+        stmt.setString(3, user.getAddress());
+        stmt.setString(4, user.getPassword());
+        stmt.setString(5, user.getGender());
+        stmt.setInt(6, user.getUserID());
+
+        stmt.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        throw new RuntimeException("Failed to update user info", e);
+    }
+}
+
 }

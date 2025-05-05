@@ -30,7 +30,7 @@
             </div>
 
             <div style="float: right;">
-                <a href="account.jsp" class="btn" style="background: darkgreen;">Your Account</a>
+                <a href="accountManagement.jsp" class="btn" style="background: darkgreen;">Your Account</a>
                 <a href="cart.jsp" class="btn" style="background: darkgreen;">Your Cart</a>
                 <a href="logout" class="btn" style="background: darkgreen;">Sign Out</a>
             </div>
