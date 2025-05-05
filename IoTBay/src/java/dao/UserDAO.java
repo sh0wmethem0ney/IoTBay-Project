@@ -9,6 +9,7 @@ public class UserDAO {
     private final String dbUser = "app";  // -> User Name / Password are equal "app" 
     private final String dbPassword = "app";
 
+    //user insert is done here
     public void insertUser(UserBean user) {
         String sqlState = "INSERT INTO USERS (name, date_of_birth, phone_number, address, password, email, gender, role) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -43,6 +44,7 @@ public class UserDAO {
 
     }
     
+    //this method will bring a unique user ID
     public int getNextUserID() {
         int nextId = 1;
         String query = "SELECT MAX(user_id) FROM USERS";
@@ -62,6 +64,7 @@ public class UserDAO {
         return nextId;
     }
     
+    //find user for login -> looking for email and password match
     public UserBean findUserToLogIn(String email, String password){
         String sqlState = "SELECT * FROM USERS WHERE email = ? AND password = ?";
         try (Connection con = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);

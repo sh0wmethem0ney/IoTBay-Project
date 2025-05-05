@@ -18,7 +18,7 @@ public class UserInsertTest {
 
         // db insert (DAO)
         UserDAO dao = new UserDAO();
-        dao.insertUser(user);  // 자동으로 user_id까지 세팅됨
+        dao.insertUser(user);  // user id setting
 
         // output
         System.out.println("Inserted user ID: " + user.getUserID());
