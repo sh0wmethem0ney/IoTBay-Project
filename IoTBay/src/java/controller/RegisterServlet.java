@@ -88,7 +88,7 @@ public class RegisterServlet extends HttpServlet {
         String phone = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
 
-        //check for null/empty fields
+        //register will not be done if there is an empty field
         if (email == null || email.trim().isEmpty() || 
             name == null || name.trim().isEmpty() || 
             password == null || password.trim().isEmpty() ||

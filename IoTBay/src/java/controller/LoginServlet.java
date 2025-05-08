@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("id");
         String password = request.getParameter("password");
 
-        // Login won't be failed for R0 release
+        // Login will not be procedd when there is an empty fields
         if (email != null && !email.isEmpty() && password != null && !password.isEmpty()) {
 
 //           // dummy created -> must be figured on R1 release
