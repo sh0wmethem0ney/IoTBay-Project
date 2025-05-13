@@ -23,12 +23,13 @@
             <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: auto; margin: 0 auto; display:block;">
         </a>
 
-        <!-- welcome message -->
+         <!-- welcom mesg --> 
         <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
             <div>
                 <h1>Welcome, <%= user.getUserName() %>!</h1>
             </div>
 
+            <!-- redirection buttons -->
             <div style="float: right;">
                 <a href="accountManagement.jsp" class="btn" style="background: darkgreen;">Your Account</a>
                 <a href="cart.jsp" class="btn" style="background: darkgreen;">Your Cart</a>
@@ -36,7 +37,7 @@
             </div>
             
         </header>
-            
+            <!-- small banner -->
             <div class="promo-banner" style="">
                 <a href="main.jsp"><img src="images/bottomImage.jpeg" style="width: 100%;height: 300px;object-fit: cover;display: block;"></a>
                 <div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); background: rgba(255,255,255,0.3); color: #002222; padding: 20px 40px; border-radius: 12px; text-align: center; backdrop-filter: blur(6px); box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
@@ -50,11 +51,11 @@
         <br>
         <br>
 
-        <!-- product images area -->
+         <!-- image area -->
         <main>
             <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 20px;">
         
-        <!-- Product section -->
+         Product section 
             <div style="text-align: center;">
                 <img src="images/speaker.jpeg" style="width: 200px; height: 300px; border-radius: 10px;">
                 <h3>Smart Speaker</h3>
@@ -90,3 +91,4 @@
 
     </body>
 </html>
+

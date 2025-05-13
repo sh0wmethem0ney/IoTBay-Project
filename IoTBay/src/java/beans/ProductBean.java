@@ -12,22 +12,21 @@ public class ProductBean {
     //constructor
     public ProductBean(String productName, String description, String status, int quantity) {
         //this ensures each instantiate of object runs generateID method
-        this.productID = generateID();
         this.productName = productName;
         this.description = description;
         this.status = status;
         this.quantity = quantity;
     }
 
-    //method to assign 6 digit ID value to each object -> need to work on this later
-    private int generateID(){
-        int cur = idCounter++;
-        String str = Integer.toString(cur);
-        while(str.length() < 6){
-            str = "0" + str;
-        }
-        return 0;
-    }
+//    //method to assign 6 digit ID value to each object -> need to work on this later
+//    private int generateID(){
+//        int cur = idCounter++;
+//        String str = Integer.toString(cur);
+//        while(str.length() < 6){
+//            str = "0" + str;
+//        }
+//        return 0;
+//    }
 
     //accessors and mutators
     public int getProductID() {

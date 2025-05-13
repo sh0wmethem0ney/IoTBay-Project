@@ -13,7 +13,6 @@ public class SupplierBean {
     //constructor
     public SupplierBean(String supplierName, String address, String phoneNumber, String email, String status) {
         //this ensures each instantiate of object runs generateID method
-        this.supplierID = generateID();
         this.supplierName = supplierName;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -21,15 +20,15 @@ public class SupplierBean {
         this.status = status;
     }
 
-    //method to assign 6 digit ID value to each object -> need to work on this later
-    private int generateID(){
-        int cur = idCounter++;
-        String str = Integer.toString(cur);
-        while(str.length() < 6){
-            str = "0" + str;
-        }
-        return 0;
-    }
+//    //method to assign 6 digit ID value to each object -> need to work on this later
+//    private int generateID(){
+//        int cur = idCounter++;
+//        String str = Integer.toString(cur);
+//        while(str.length() < 6){
+//            str = "0" + str;
+//        }
+//        return 0;
+//    }
 
     //accessors and mutators
     public int getSupplierID() {

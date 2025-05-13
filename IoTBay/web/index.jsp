@@ -7,7 +7,7 @@
     </head>
 
     <body>
-
+    <!-- logo section -->
         <a href="index.jsp">
             <img src="images/IoTBay Logo.png" alt="IoTBay Logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
         </a>
@@ -26,6 +26,7 @@
         <main>
             <div class="container">
 
+                <!-- redirection buttons -->
                 <div>
                    <a href="register.jsp"><button class="btn" style="width: 100%;">Create Account</button></a>
                     <a href="login.jsp"><button class="btn" style="width: 100%;">Sign-In</button></a> 

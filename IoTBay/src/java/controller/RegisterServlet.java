@@ -117,6 +117,15 @@ public class RegisterServlet extends HttpServlet {
         try {
             //call DAO class
             UserDAO dao = new UserDAO();
+            
+            //check email exist or not -> call dao method
+            UserBean existingUser = dao.findUserByEmail(email);
+            if (existingUser != null) {
+                request.setAttribute("errorMessage", "This email is already registered.");
+                request.getRequestDispatcher("register.jsp").forward(request, response);
+                return;
+            }
+            
             int newId = dao.getNextUserID();
             user.setUserID(newId);
 

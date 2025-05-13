@@ -31,6 +31,7 @@
     if ("true".equals(success)) {
     %>
     <script>
+        <!-- change notification mesg -->
         alert("Information changed.");
         window.location.href = "main.jsp";
     </script>
@@ -39,7 +40,6 @@
     %>
 
     <!-- info update container -->
-    
     <main>
         <div class="container">
             <form action="UpdateAccountServlet" method="post">
@@ -67,6 +67,7 @@
                 <a href="main.jsp" class="btn">Cancel</a>
             </form>
                 
+            <!-- this redirects to deleteUser.jsp -->
             <form action="DeleteAccountServlet" method="post" onsubmit="return confirm('Are you sure deleting your account? Irrversiable');">
                 <button type="submit" class="btn" style="background-color: red;">Delete my account</button>
             </form>

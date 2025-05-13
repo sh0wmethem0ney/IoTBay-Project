@@ -11,21 +11,20 @@ public class PaymentBean {
     //constructor   
     public PaymentBean(double amount, String paymentDate, String paymentType) {
         //this ensures each instantiate of object runs generateID method
-        this.paymentID = generateID();
         this.amount = amount;
         this.paymentDate = paymentDate;
         this.paymentType = paymentType;
     }
 
-    //method to assign 6 digit ID value to each object -> need to work on this later
-    private int generateID(){
-        int cur = idCounter++;
-        String str = Integer.toString(cur);
-        while(str.length() < 6){
-            str = "0" + str;
-        }
-        return 0;
-    }
+//    //method to assign 6 digit ID value to each object -> need to work on this later
+//    private int generateID(){
+//        int cur = idCounter++;
+//        String str = Integer.toString(cur);
+//        while(str.length() < 6){
+//            str = "0" + str;
+//        }
+//        return 0;
+//    }
 
     //accessors and mutators
     public int getPaymentID() {

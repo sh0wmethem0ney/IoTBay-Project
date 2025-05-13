@@ -130,5 +130,36 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+    
+    //check if email already exist
+    public UserBean findUserByEmail(String email) {
+    String sql = "SELECT * FROM USERS WHERE email = ?";
+    
+    try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            UserBean user = new UserBean();
+            user.setUserID(rs.getInt("user_id"));
+            user.setUserName(rs.getString("name"));
+            user.setDateOfBirth(rs.getString("date_of_birth"));
+            user.setPhoneNumber(rs.getString("phone_number"));
+            user.setAddress(rs.getString("address"));
+            user.setPassword(rs.getString("password"));
+            user.setEmail(rs.getString("email"));
+            user.setGender(rs.getString("gender"));
+            user.setRole(rs.getString("role").charAt(0));
+            return user;
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return null; // if there is no email exist in DB
+}
 
 }

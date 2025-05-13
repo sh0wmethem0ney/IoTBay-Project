@@ -26,6 +26,7 @@
             <h1>Welcome, <%= user.getUserName() %>!</h1>
         </header>
 
+        <!-- detail display -->
         <main>
             <div class="container">
                 <p><strong>Email:</strong> <%= user.getEmail() %></p>

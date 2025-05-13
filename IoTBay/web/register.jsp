@@ -16,6 +16,13 @@
             <h1>Register</h1>
         </header>
        
+        <!-- error mesg output if needed -->
+        <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+        <% if (errorMessage != null) { %>
+            <p style="color: red;"><%= errorMessage %></p>
+        <% } %>
+        
+        <!-- detail input section-->
         <main>
             <div class="container">
                 <form action="RegisterServlet" method="post">
