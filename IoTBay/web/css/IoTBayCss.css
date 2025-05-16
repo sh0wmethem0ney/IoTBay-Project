@@ -98,3 +98,13 @@ font-family: Arial, sans-serif;
 .btn:hover, a.btn:hover {
     background-color: black;
 }
+
+#creditCardDetails input[type="text"] {
+    padding: 12px;
+    font-size: 13px;
+}
+
+#creditCardDetails select {
+    padding: 12px;
+    font-size: 13px;
+}

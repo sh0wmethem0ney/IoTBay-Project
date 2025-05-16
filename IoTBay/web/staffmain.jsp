@@ -31,7 +31,7 @@
         <h1>Welcome, <%= user.getUserName() %>!</h1>
     </div>
     <div class="header-links">
-        <a href="accountManagement.jsp" class="btn">Your Account</a>
+        <a href="account.jsp" class="btn">Your Account</a>
         <% if (isStaff) { %>
             <a href="product?action=list" class="btn">Manage Catalog</a>
         <% } else { %>
@@ -51,30 +51,30 @@
 
 <h2 class="section-title">Featured Products</h2>
 
-    <main>
-        <div class="product-section">
-            <%
-                int displayCount = Math.min(featuredProducts.size(), 3);
-                for (int i = 0; i < displayCount; i++) {
-                    ProductBean product = featuredProducts.get(i);
-            %>
-            <div class="product-card">
-                <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
-                <h3><%= product.getProductName() %></h3>
-                <p><%= product.getFormattedPrice() %></p>
-                <% if (!isStaff) { %>
-                    <a href="cart?action=add&id=<%= product.getProductID() %>" class="btn">Add to Cart</a>
-                <% } %>
-            </div>
+<main>
+    <div class="product-section">
+        <%
+            int displayCount = Math.min(featuredProducts.size(), 3);
+            for (int i = 0; i < displayCount; i++) {
+                ProductBean product = featuredProducts.get(i);
+        %>
+        <div class="product-card">
+            <img src="<%= product.getImageUrl() %>" alt="<%= product.getProductName() %>">
+            <h3><%= product.getProductName() %></h3>
+            <p><%= product.getFormattedPrice() %></p>
+            <% if (!isStaff) { %>
+                <a href="cart?action=add&id=<%= product.getProductID() %>" class="btn">Add to Cart</a>
             <% } %>
         </div>
+        <% } %>
+    </div>
 
-        <a href="product?action=list" class="btn-catalog">View Full Catalog</a>
-    </main>
+    <a href="product?action=list" class="btn-catalog">View Full Catalog</a>
+</main>
 
-    <footer>
-        <p>&copy; 2025 IoTBay-ISD. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 IoTBay-ISD. All rights reserved.</p>
+</footer>
 
 </body>
 </html>

@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                         break;
                         
                     case 's': // -> if user is Staff <-
-//                        response.sendRedirect("???");
+                        response.sendRedirect("staffmain.jsp");
                         break;
                         
                     default: // -> if none

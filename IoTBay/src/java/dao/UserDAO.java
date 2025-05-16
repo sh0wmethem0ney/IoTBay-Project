@@ -6,7 +6,8 @@ import java.sql.*;
 public class UserDAO {
 
     private final String jdbcURL = "jdbc:derby://localhost:1527/iotbaydb";
-    private final String dbUser = "app";  // -> User Name / Password are equal "app" 
+    // ******************-> DB User Name / Password are equal "app"***********************
+    private final String dbUser = "app";   
     private final String dbPassword = "app";
 
     //user insert is done here

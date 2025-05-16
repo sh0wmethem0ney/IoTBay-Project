@@ -67,10 +67,14 @@
                 <a href="main.jsp" class="btn">Cancel</a>
             </form>
                 
+            <a href="creditCardManagement.jsp" class="btn">Credit Card Information</a>
+                
             <!-- this redirects to deleteUser.jsp -->
             <form action="DeleteAccountServlet" method="post" onsubmit="return confirm('Are you sure deleting your account? Irrversiable');">
                 <button type="submit" class="btn" style="background-color: red;">Delete my account</button>
             </form>
+            
+            
         </div>             
     </main>
                 
