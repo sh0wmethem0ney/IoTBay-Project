@@ -2,10 +2,13 @@ package dao;
 
 import beans.UserBean;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
-    private final String jdbcURL = "jdbc:derby://localhost:1527/iotbaydb";
+    private final String jdbcURL = "jdbc:derby:C:\\Users\\Ashwin\\Documents\\NetBeansProjects\\IoTBay-ProjectDB\\Derby\\iotbaydb";
     // ******************-> DB User Name / Password are equal "app"***********************
     private final String dbUser = "app";   
     private final String dbPassword = "app";
@@ -162,5 +165,377 @@ public class UserDAO {
 
     return null; // if there is no email exist in DB
 }
+    
+    //Admin Dashboard Functionality
+    
+        public void adminUpdateUser(UserBean user) {
+        String sql = "UPDATE USERS SET email = ?, phone_number = ?, address = ?  WHERE user_id = ?";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, user.getEmail());
+            stmt.setString(2, user.getPhoneNumber());
+            stmt.setString(3, user.getAddress());
+            stmt.setInt(4, user.getUserID());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to update user info", e);
+        }
+    }
+        
+        public void adminDeleteUser(int userID) {
+        String sql = "DELETE FROM DeactivatedUsers WHERE user_id = ?";
+        
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userID);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        
+    public UserBean getUserById(int userId) {
+        UserBean user = null;
+
+        String sql = "SELECT * FROM Users WHERE user_id = ?";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    user = new UserBean();
+                    user.setUserID(rs.getInt("user_id"));
+                    user.setEmail(rs.getString("email"));
+                    user.setUserName(rs.getString("name"));
+                    user.setAddress(rs.getString("address"));
+                    user.setPhoneNumber(rs.getString("phone_number"));
+                    user.setGender(rs.getString("gender"));
+                    user.setDateOfBirth(rs.getString("date_of_birth"));
+                    // Add any other fields your UserBean has
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    
+    
+    public int getTotalUsers(){
+        String sql = "SELECT COUNT(*) FROM USERS";
+        
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int getTotalCustomers(){
+//      //Get from the usertype column if they are c (customer), e (employee), a(admin)
+        String sql = "SELECT COUNT(*) FROM USERS WHERE role = 'c'";
+        
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int getTotalEmployees(){
+        String sql = "SELECT COUNT(*) FROM USERS WHERE role = 's'";
+        
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;  
+    }
+    
+    public int getTotalDeactivatedUsers(){
+        String sql = "SELECT COUNT(*) FROM DeactivatedUsers";
+        
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public List<UserBean> getAllCustomers() {
+        List<UserBean> customerList = new ArrayList<>();
+        String sql = "SELECT user_id, name, date_of_birth, email, phone_number, gender, role FROM USERS WHERE role = 'c'";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                UserBean user = new UserBean();
+                Date dob = rs.getDate("date_of_birth");
+                String dobString = null;
+                if (dob != null) {
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // or your preferred format
+                        dobString = formatter.format(dob);
+                }
+                user.setDateOfBirth(dobString);
+                user.setUserID(rs.getInt("user_id"));
+                user.setUserName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role").charAt(0));
+                
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setGender(rs.getString("gender"));
+                customerList.add(user);
+                
+            }
+//            for (UserBean u : customerList) {
+//                System.out.println("Current Customer: " + u.getUserName());
+//            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerList;
+    
+    }
+    
+       public List<UserBean> getAllStaff() {
+            List<UserBean> StaffList = new ArrayList<>();
+            String sql = "SELECT user_id, name, date_of_birth, email, phone_number, gender, role FROM USERS WHERE role = 's'";
+
+            try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+                    UserBean user = new UserBean();
+                    Date dob = rs.getDate("date_of_birth");
+                    String dobString = null;
+                    if (dob != null) {
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // or your preferred format
+                        dobString = formatter.format(dob);
+                    }
+                    user.setDateOfBirth(dobString);
+                    user.setUserID(rs.getInt("user_id"));
+                    user.setUserName(rs.getString("name"));
+                    user.setEmail(rs.getString("email"));
+                    user.setRole(rs.getString("role").charAt(0));
+                    
+                    user.setPhoneNumber(rs.getString("phone_number"));
+                    user.setGender(rs.getString("gender"));
+                    StaffList.add(user);
+
+                }
+//                for (UserBean u : StaffList) {
+//                    System.out.println("Current Customer: " + u.getUserName());
+//                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return StaffList;
+        }
+       
+       
+        public List<UserBean> getAllDeactivatedUsers() {
+        List<UserBean> DeactivatedList = new ArrayList<>();
+        String sql = "SELECT user_id, name, date_of_birth, email, phone_number, gender, role, dateDeactivated FROM DeactivatedUsers";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                UserBean user = new UserBean();
+                
+                Date DeactivatedDate = rs.getDate("dateDeactivated");
+                    String DDString = null;
+                    if (DeactivatedDate != null) {
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // or your preferred format
+                        DDString = formatter.format(DeactivatedDate);
+                    }
+                Date dob = rs.getDate("date_of_birth");
+                    String dobString = null;
+                    if (dob != null) {
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // or your preferred format
+                        dobString = formatter.format(dob);
+                    }
+                user.setDateOfBirth(dobString);
+                user.setDateOfBirth(dobString); 
+                user.setDateDeactivated(DDString);   
+                user.setUserID(rs.getInt("user_id"));
+                user.setUserName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setRole(rs.getString("role").charAt(0));
+                
+                user.setPhoneNumber(rs.getString("phone_number"));
+                user.setGender(rs.getString("gender"));
+                
+                
+                
+                DeactivatedList.add(user);
+                
+            }
+//            for (UserBean u : DeactivatedList) {
+////                System.out.println("Current Customer: " + u.getUserName());
+//            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return DeactivatedList;
+    
+    }
+       
+//    admin level changes
+    public void updateUserRole(int userID, char newRole) {
+        String sql = "UPDATE USERS SET role = ? WHERE user_id = ?";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, String.valueOf(newRole));
+            stmt.setInt(2, userID);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+//    moves user to deactivate table with timestamp
+    public void deactivateUser(int userId) {
+    String selectSql = "SELECT user_id, name, date_of_birth, phone_number, address, password, email, gender, role FROM Users WHERE user_id = ?";
+    String insertSql = "INSERT INTO DeactivatedUsers (name, date_of_birth, phone_number, address, password, email, gender, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+//    String insertSql = "INSERT INTO DeactivatedUsers (user_id, name, date_of_birth, phone_number, address, password, email, gender, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    String deleteSql = "DELETE FROM Users WHERE user_id = ?";
+//    System.out.println("Deactivate function ran with userID " + userId);
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword)) {
+            conn.setAutoCommit(false);
+
+            // gets the record
+            try (PreparedStatement ps = conn.prepareStatement(selectSql)) {
+                ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        try (PreparedStatement ins = conn.prepareStatement(insertSql)) {
+//                            inserts record into deactivated table
+                            ins.setString(1, rs.getString("name"));
+                            // Correct DATE type
+                            Date dob = rs.getDate("date_of_birth");
+                            ins.setDate(2, dob);                                 
+
+                            ins.setString(3, rs.getString("phone_number")); 
+                            ins.setString(4, rs.getString("address"));
+                            ins.setString(5, rs.getString("password"));
+                            ins.setString(6, rs.getString("email"));
+                            ins.setString(7, rs.getString("gender"));
+                            ins.setString(8, rs.getString("role"));  
+                            ins.executeUpdate();
+                        }
+                    }
+                }
+            }
+
+            // deletes the record from users table
+            try (PreparedStatement del = conn.prepareStatement(deleteSql)) {
+                del.setInt(1, userId);
+                del.executeUpdate();
+            }
+
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        
+//    does the opposite of deactivate
+    public void reactivateUser(int userId) {
+        String selectSql = "SELECT user_id, name, date_of_birth, phone_number, address, password, email, gender, role FROM DeactivatedUsers WHERE user_id = ?";
+        String insertSql = "INSERT INTO USERS (name, date_of_birth, phone_number, address, password, email, gender, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    //    String insertSql = "INSERT INTO DeactivatedUsers (user_id, name, date_of_birth, phone_number, address, password, email, gender, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String deleteSql = "DELETE FROM DeactivatedUsers WHERE user_id = ?";
+//        System.out.println("Deactivate function ran with userID " + userId);
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword)) {
+            conn.setAutoCommit(false);
+
+            // gets the record
+            try (PreparedStatement ps = conn.prepareStatement(selectSql)) {
+                ps.setInt(1, userId);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        try (PreparedStatement ins = conn.prepareStatement(insertSql)) {
+    //                      inserts record into deactivated table
+                            ins.setString(1, rs.getString("name"));
+                            // Correct DATE type
+                            Date dob = rs.getDate("date_of_birth");
+                            ins.setDate(2, dob);                                 
+                                
+                            ins.setString(3, rs.getString("phone_number")); 
+                            ins.setString(4, rs.getString("address"));
+                            ins.setString(5, rs.getString("password"));
+                            ins.setString(6, rs.getString("email"));
+                            ins.setString(7, rs.getString("gender"));
+                            ins.setString(8, rs.getString("role"));  
+                            ins.executeUpdate();
+                            }
+                        }
+                    }
+                }
+
+                // deletes the record from users table
+                try (PreparedStatement del = conn.prepareStatement(deleteSql)) {
+                    del.setInt(1, userId);
+                    del.executeUpdate();
+                }
+
+                conn.commit();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
+
+    
 
 }

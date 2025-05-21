@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                         break;
                     
                     case 'a': // -> if user is Admin <-
-//                        response.sendRedirect("???");
+                        response.sendRedirect("adminDashboardServlet");
                         break;
                         
                     case 's': // -> if user is Staff <-
