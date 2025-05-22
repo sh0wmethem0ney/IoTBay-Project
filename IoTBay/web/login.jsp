@@ -14,6 +14,14 @@
             <h1>Sign In</h1>
         </header>
 
+        <!-- error mesg when fail-->
+        <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+            <% if (errorMessage != null) { %>
+                <div class="error-message" style="color: red; text-align: center; margin-bottom: 20px;">
+            <%= errorMessage %>
+            </div>
+        <% } %>
+        
         <main>
             <br>
             <br>
