@@ -14,6 +14,7 @@ public class UserBean {
     private String gender;
     private char role;  // 'c' = Customer, 'a' = Admin, 's' = Staff
     private int orderID;
+    private String dateDeactivated;
 
 
     //constructor
@@ -110,4 +111,11 @@ public class UserBean {
         this.role = role;
     }
     
+    public void setDateDeactivated(String date){
+        this.dateDeactivated = date;
+    }
+    
+    public String getDateDeactivated(){
+        return dateDeactivated;
+    }
 }

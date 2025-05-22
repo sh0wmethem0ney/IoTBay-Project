@@ -7,7 +7,7 @@
     </head>
     <body>
         <a href='index.jsp'>
-            <img src="images/IoTBay Logo.png" class="logo" style="width: 300px; height: atuo; margin: 0 auto; display:block;">
+            <img src="images/IoTBay Logo.png" class="logo" style="width: 300px; height: auto; margin: 0 auto; display:block;">
         </a>
 
         <header>
