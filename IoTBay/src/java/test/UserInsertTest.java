@@ -7,14 +7,14 @@ public class UserInsertTest {
     public static void main(String[] args) {
         // User info
         UserBean user = new UserBean();
-        user.setUserName("Test Staff");
+        user.setUserName("Admin");
         user.setDateOfBirth("1995-12-20");
         user.setPhoneNumber("0411222333");
         user.setAddress("123 Test Street, Sydney");
-        user.setPassword("test1234");
-        user.setEmail("staff@test.com");
+        user.setPassword("admin");
+        user.setEmail("admin@admin.com");
         user.setGender("female");
-        user.setRole('s'); // 'c' = customer
+        user.setRole('a'); // 'c' = customer
 
         // db insert (DAO)
         UserDAO dao = new UserDAO();
