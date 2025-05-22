@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UserDAO {
 
-    private final String jdbcURL = "jdbc:derby:C:\\Users\\Ashwin\\Documents\\NetBeansProjects\\IoTBay-ProjectDB\\Derby\\iotbaydb";
+    private final String jdbcURL = "jdbc:derby://localhost:1527/iotbaydb";
     // ******************-> DB User Name / Password are equal "app"***********************
     private final String dbUser = "app";   
     private final String dbPassword = "app";
@@ -164,7 +164,41 @@ public class UserDAO {
     }
 
     return null; // if there is no email exist in DB
+    
+    
 }
+    
+    //insert into LOGIN LOGS table
+    public void insertLoginLog(int userId) {
+    String sql = "INSERT INTO LOGIN_LOGS (user_id, login_time) VALUES (?, CURRENT_TIMESTAMP)";
+    try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        stmt.setInt(1, userId);
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+    
+    // tracking of login logs
+    public List<Timestamp> getLoginLogs(int userId) {
+        List<Timestamp> logs = new ArrayList<>();
+        String sql = "SELECT login_time FROM LOGIN_LOGS WHERE user_id = ? ORDER BY login_time DESC";
+
+        try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                logs.add(rs.getTimestamp("login_time"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return logs;
+    }
+    
     
     //Admin Dashboard Functionality
     

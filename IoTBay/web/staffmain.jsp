@@ -31,7 +31,7 @@
         <h1>Welcome, <%= user.getUserName() %>!</h1>
     </div>
     <div class="header-links">
-        <a href="account.jsp" class="btn">Your Account</a>
+        <a href="accountManagement.jsp" class="btn">Your Account</a>
         <% if (isStaff) { %>
             <a href="product?action=list" class="btn">Manage Catalog</a>
         <% } else { %>

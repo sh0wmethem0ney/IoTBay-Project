@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
                 //confirm user type if (c/a/s) -> whoever works on Admin and Staff pages, redirect pages from here
                 switch(user.getRole()){
                     case 'c': // -> if user is Customer <-
+                        dao.insertLoginLog(user.getUserID());
                         response.sendRedirect("main.jsp");
                         break;
                     
@@ -49,6 +50,7 @@ public class LoginServlet extends HttpServlet {
                         break;
                         
                     case 's': // -> if user is Staff <-
+                        dao.insertLoginLog(user.getUserID());
                         response.sendRedirect("staffmain.jsp");
                         break;
                         
