@@ -69,6 +69,8 @@
                 
             <a href="loginLogs.jsp" class="btn">View Log</a>
             <a href="creditCardManagement.jsp" class="btn">Credit Card Information</a>
+            
+            <a href="shipmentForm.jsp" class="btn">Shipment Details</a>
                 
             <!-- this redirects to deleteUser.jsp -->
             <form action="DeleteAccountServlet" method="post" onsubmit="return confirm('Are you sure deleting your account? Irrversiable');">

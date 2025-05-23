@@ -1,9 +1,17 @@
-<%-- 
-    Document   : cart
-    Created on : 9 May 2025, 3:34:20?am
-    Author     : Ayden
---%>
+<%@ page import="beans.UserBean" %>
+<%@ page import="beans.CartBean" %>
+<%@ page import="beans.OrderBean" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
+<%
+    UserBean user = (UserBean) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+    String userName = user.getUserName();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,37 +28,56 @@
     <header>
         <h1>My Cart</h1>
     </header>
-   
-    <%
-        List<CartBean> cart = (List<CartBean>) session.getAttribute("cart");
-        double total = 0;
-        if (cart != null && !cart.isEmpty()) {
-    %>
+
     <table border="1">
-        <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th><th>Action</th></tr>
-        <% for (CartBean item : cart) {
-               total += item.getTotalPrice();
-        %>
         <tr>
-            <td><%= item.getProductName() %></td>
-            <td><%= item.getProductName().getUnitPrice() %></td>
-            <td><%= item.getQuantity() %></td>
-            <td><%= item.getTotalPrice() %></td>
-            <td>
-                <form action="CartServlet" method="post">
-                    <input type="hidden" name="action" value="remove" />
-                    <input type="hidden" name="productID" value="<%= item.getProductName().getProductID() %>" />
-                    <input type="submit" class="btn" style="background-color: red;" value="Remove" />
-                </form>
-            </td>
+            <th>Product ID</th><th>Quantity</th><th>Price</th><th>Total</th><th>Action</th>
         </tr>
-        <% } %>
+        <c:forEach var="item" items="${items}">
+            <tr>
+                <td>${item.productID}</td>
+                <td>
+                    <form action="OrderServlet" method="post">
+                        <input type="hidden" name="action" value="updateItem">
+                        <input type="hidden" name="itemID" value="${item.itemID}">
+                        <input type="hidden" name="orderID" value="${order.orderID}">
+                        <input type="hidden" name="userName" value="<%= user.getUserName()%>">
+                        <input type="number" name="quantity" value="${item.quantity}" min="1">
+                        <input type="submit" value="Update">
+                    </form>
+                </td>
+                <td>${item.price}</td>
+                <td>${item.quantity * item.price}</td>
+                <td>
+                    <form action="OrderServlet" method="post">
+                        <input type="hidden" name="action" value="deleteItem">
+                        <input type="hidden" name="itemID" value="${item.itemID}">
+                        <input type="hidden" name="orderID" value="${order.orderID}">
+                        <input type="hidden" name="userName" value="<%= user.getUserName()%>">
+                        <input type="submit" value="Remove">
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
     </table>
-    <h3>Total: <%= total %></h3>
-    <% } else { %>
-        <p>Your cart is empty.</p>
-    <% } %>
-    <a href="orderForm.jsp" class="btn" >Continue Order</a>
+
+    <p><strong>Total Price: </strong> ${order.totalPrice}</p>
+
+    <form action="OrderServlet" method="post">
+        <input type="hidden" name="action" value="clearCart">
+        <input type="hidden" name="orderID" value="${order.orderID}">
+        <input type="hidden" name="userName" value="<%= user.getUserName()%>">
+        <input type="submit" class="btn" style="background: red;" value="Clear Cart">
+    </form>
+    
+    <form action="OrderServlet" method="post">
+        <input type="hidden" name="action" value="checkout">
+        <input type="hidden" name="orderID" value="${order.orderID}">
+        <input type="hidden" name="userName" value="<%= user.getUserName()%>">
+        <input type="submit" class="btn" value="Proceed to Checkout">
+    </form>
+
+    <a href="orderHistory.jsp" class="btn" >Order History</a>
     <a href="catalog.jsp" class="btn" >Continue Shopping</a>
     <a href="checkout.jsp" class="btn" >Checkout</a>
     

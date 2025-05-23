@@ -132,6 +132,7 @@
         </div>
 
         <br>
+        <a href="shipmentForm.jsp?orderId=${order.orderId}" class="btn" style="margin-right:10px;"> Shipment Details </a>
         <button type="button" onclick="unlockPayment()" class="btn">Proceed to Payment</button>
     </div>
     <%-- delivery options--%>

@@ -4,14 +4,14 @@ public class OrderBean {
     //member attributes
     private static int idCounter = 0;
     private int orderID;
-    private String orderDesc;
+    private String userName;
+    private int productID;
     private String orderStatus;
-    private String orderDate;
-    private double totalAmount;
-    private Integer userID;
-    private String tempSessionID;
-    private List<ProductBean> items = new ArrayList<>();
-    private String paymentID;
+    private Date orderDate;
+    private int quantity;
+    private double price;
+    private double totalPrice;
+    private int paymentID;
     private String shippingDetails;
 
     //constructor
@@ -30,74 +30,62 @@ public class OrderBean {
 //        return 0;
 //    }
 
+    public OrderBean(int orderID, String userName, double totalPrice, String orderStatus){
+        this.orderID = orderID;
+        this.userName = userName;
+        this.totalPrice = totalPrice;
+        this.orderStatus = orderStatus;
+ 
+    }
+    
     //accessors and mutators
     public int getOrderID() {
-        return orderID;
-    }
-
+        return orderID;}
     public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
-    public String getOrderDesc() {
-        return orderDesc;
-    }
-
-    public void setOrderDesc(String orderDesc) {
-        this.orderDesc = orderDesc;
-    }
+        this.orderID = orderID;}
+    
+    public String getUserName() { 
+        return userName; }
+    public void setUserName(String userName) { 
+        this.userName = userName; }
+    
+    public int getProductID() { 
+        return productID; }
+    public void setProductID(int productID) { 
+        this.productID = productID; }
 
     public String getOrderStatus() {
-        return orderStatus;
-    }
-
+        return orderStatus;}
     public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
+        this.orderStatus = orderStatus;}
     
-    public String getOrderDate() {
-        return orderDate;
-    }
+    public Date getOrderDate() {
+        return orderDate;}
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;}
     
-    public void setOrderDate(String orderDate) { 
-        this.orderDate = orderDate; 
-    }
+    public int getQuantity() { 
+        return quantity; }
+    public void setQuantity(int quantity) { 
+        this.quantity = quantity; }
+    
+    public double getPrice() { 
+        return price; }
+    public void setPrice(double price) { 
+        this.price = price; }
 
-    public double getTotalAmount() { 
-        return totalAmount; 
-    }
-    
-    public void setTotalAmount(double totalAmount) { 
-        this.totalAmount = totalAmount; 
-    }
-    
-    public String getPaymentID() {
-        return paymentID;
-    }
+    public double getTotalPrice() { 
+        return totalPrice; }
+    public void setTotalPrice(double totalPrice) { 
+        this.totalPrice = totalPrice; }
 
-    public void setPaymentID(String paymentID) {
-        this.paymentID = paymentID;
-    }
+    public int getPaymentID() {
+        return paymentID;}
+    public void setPaymentID(int paymentID) {
+        this.paymentID = paymentID;}
 
     public String getShippingDetails() {
-        return shippingDetails;
-    }
-
+        return shippingDetails;}
     public void setShippingDetails(String shippingDetails) {
-        this.shippingDetails = shippingDetails;
-    }
-    
-    public Integer getUserID() { return userID; }
-    public void setUserID(Integer userID) { this.userID = userID; }
-    
-    public String getTempSessionID() { return tempSessionID; }
-    public void setTempSessionID(String tempSessionID) { this.tempSessionID = tempSessionID; }
-    
-    public List<ProductBean> getItems() { 
-        return items; 
-    }
-    
-    public void setItems(List<ProductBean> items) { 
-        this.items = items; 
-    }
+        this.shippingDetails = shippingDetails;}
 }

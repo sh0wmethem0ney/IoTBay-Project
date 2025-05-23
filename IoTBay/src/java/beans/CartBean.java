@@ -1,6 +1,51 @@
 package beans;
 
-import java.util.*;
+public class CartBean {
+    private int itemID;
+    private int orderID;
+    private int productID;
+    private int quantity;
+    private double price;
+
+    public CartBean() {
+    
+    }
+
+    public CartBean(int itemID, int orderID, int productID, int quantity, double price) {
+        this.itemID = itemID;
+        this.orderID = orderID;
+        this.productID = productID;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public int getItemID() { 
+        return itemID; }
+    public void setItemID(int itemID) { 
+        this.itemID = itemID; }
+    
+    public int getOrderID() { 
+        return orderID; }
+    public void setOrderID(int orderID) { 
+        this.orderID = orderID; }
+    
+    public int getProductID() { 
+        return productID; }
+    public void setProductID(int productID) { 
+        this.productID = productID; }
+    
+    public int getQuantity() { 
+        return quantity; }
+    public void setQuantity(int quantity) { 
+        this.quantity = quantity; }
+    
+    public double getPrice() { 
+        return price; }
+    public void setPrice(double price) { 
+        this.price = price; }
+}
+
+/*import java.util.*;
 
 public class CartBean {
     private ProductBean productName;
@@ -26,7 +71,7 @@ public class CartBean {
     }
 }
     
-/*    public void addProduct(ProductBean productName){
+    public void addProduct(ProductBean productName){
         int id = product.getProductID();
         if (items.containsKey(id)){
             ProductBean existing = items.get(id);

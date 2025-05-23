@@ -23,7 +23,7 @@
 <body>
 
 <a href="main.jsp">
-    <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo">
+    <img src="images/IoTBay Logo.png" alt="IoTBay Logo" class="logo" style="width: 300px; height: auto; margin: 0 auto; display:block;">
 </a>
 
 <header class="page-header">
@@ -45,7 +45,6 @@
     <img src="images/bottomImage.jpeg" class="promo-img">
     <div class="promo-overlay">
         <h2>BIG SALE!</h2>
-        <p>UP TO 50% OFF THIS WEEK! GRAB NOW!</p>
     </div>
 </div>
 
