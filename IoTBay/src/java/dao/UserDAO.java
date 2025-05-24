@@ -122,14 +122,12 @@ public class UserDAO {
     
     public void deleteUser(int userID) {
         String sql = "DELETE FROM USERS WHERE user_id = ?";
-        
+        //connecting to DB
         try (Connection conn = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, userID);
             stmt.executeUpdate();
             System.out.println("User deleted: " + userID);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
